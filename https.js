@@ -9,6 +9,8 @@ const server = http.createServer((req,res)=>{
     if(req.url=='/'){
         res.statusCode=200
         res.end('Bienvenído a mi api')
+    }else if(req.url=='/imagen.png'){
+        res.setHeader('Content-Type,image/png')
     }else if(req.url=='/contacto'){
         res.statusCode=200
         res.end('<h1>3121691026</h1>')
