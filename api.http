@@ -1,15 +1,21 @@
-GET http://localhost:1234/ditto
+GET http://localhost:1234/movies
 
-###separacion
+### separacion
+GET http://localhost:1234/movies?genre=action
+### recuperar pelicula
+GET http://localhost:1234/movies/dcdd0fad-a94c-4810-8acc-5f108d3b18c3
 
-POST http://localhost:1234/pokemon
+
+### Crear una pelicula
+POST http://localhost:1234/movies
 Content-Type: application/json
 
 {
-    "name":"ditto",
-    "type":"normal",
-    "moves":[
-        "placaje",
-        "ida y vueta"
-    ]
+    "title": "The Dark Knight nuevfdghds",
+    "year": 2008,
+    "director": 45,
+    "duration": 152,
+    "poster": "https://i.ebayimg.com/images/g/yokAAOSw8w1YARbm/s-l1200.jpg",
+    "genre": ["Action", "Drama"],
+    "rate": 9.0
 }

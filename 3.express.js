@@ -4,8 +4,7 @@ const app = express()
 
 const port = process.argv.port?? 1234
 
-app.use((req,res,next)=>{
-    
+
     next()
 })
 
