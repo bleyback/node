@@ -3,7 +3,7 @@ GET http://localhost:1234/movies
 ### separacion
 GET http://localhost:1234/movies?genre=action
 ### recuperar pelicula
-GET http://localhost:1234/movies/dcdd0fad-a94c-4810-8acc-5f108d3b18c3
+GET http://localhost:1234/movies/55502e0f-6a90-4a85-bc33-35a5858a2d45
 
 
 ### Crear una pelicula
@@ -13,9 +13,16 @@ Content-Type: application/json
 {
     "title": "The Dark Knight nuevfdghds",
     "year": 2008,
-    "director": 45,
+    "director": "fdjfhdfhdfh",
     "duration": 152,
     "poster": "https://i.ebayimg.com/images/g/yokAAOSw8w1YARbm/s-l1200.jpg",
     "genre": ["Action", "Drama"],
     "rate": 9.0
+}
+###
+
+PATCH http://localhost:1234/movies/dcdd0fad-a94c-4810-8acc-5f108d3b18c3
+Content-Type: application/json
+{
+    "year":1999
 }
