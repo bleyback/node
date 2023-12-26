@@ -4,6 +4,7 @@
   "description": "",
   "main": "https.js",
   "scripts": {
+    "start":" node app.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev:3": "node --watch 3.express.js"
   },
