@@ -1,4 +1,4 @@
-const z= require('zod')
+import z from 'zod'
 
 const movieSchema = z.object({
     title: z.string({
@@ -15,14 +15,9 @@ const movieSchema = z.object({
     genre: z.array(z.enum(['Action','Adventure','Comedy','Drama','Fantasy','Horror','Thriller','Sci-Fi']))
 })
 
-function validateMovie (object){
+export function validateMovie (object){
 return movieSchema.safeParse(object)
 }
-function validatePartialMiove (input){
+export function validatePartialMiove (input){
     return movieSchema.partial().safeParse(input)
-}
-module.exports={
-    validateMovie,
-    validatePartialMiove
-
 }

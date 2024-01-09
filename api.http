@@ -3,8 +3,7 @@ GET http://localhost:1234/movies
 ### separacion
 GET http://localhost:1234/movies?genre=action
 ### recuperar pelicula
-GET http://localhost:1234/movies/55502e0f-6a90-4a85-bc33-35a5858a2d45
-
+GET http://localhost:1234/movies/58941694-d5e2-4cf7-84fc-0d08ca317507
 
 ### Crear una pelicula
 POST http://localhost:1234/movies
@@ -21,8 +20,12 @@ Content-Type: application/json
 }
 ###
 
-PATCH http://localhost:1234/movies/dcdd0fad-a94c-4810-8acc-5f108d3b18c3
+PATCH http://localhost:1234/movies/58941694-d5e2-4cf7-84fc-0d08ca317507
 Content-Type: application/json
+
 {
     "year":1999
 }
+###
+
+DELETE http://localhost:1234/movies/58941694-d5e2-4cf7-84fc-0d08ca317507
