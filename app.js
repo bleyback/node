@@ -1,17 +1,41 @@
 import express, { json } from 'express'
 import { moviesRouter } from './routes/movies.js'
 import { corsMiddleware } from './middlewares/cors.js'
+import http from "node:http";
+import { Server as SocketServer } from "socket.io";
+import { resolve } from "path";
+
 
 const app=express()
+const server = http.createServer(app);
+const io = new SocketServer(server,{
+    cors: {
+        origin: "http://localhost:5173",
+        }
+});
 
 app.disable('x-powered-by')
+app.use(express.urlencoded({ extended: false }));
+app.use(express.static(resolve("frontend/dist")));
+
 
 app.use(json())
 app.use(corsMiddleware())
 app.use('/movies',moviesRouter)
 
+io.on("connection", (socket) => {
+    socket.on("chat message", (body) => {
+        socket.broadcast.emit("chat message", {
+        body,
+        from: socket.id.slice(8),
+            
+        });
+    });
+});
+
+
 const PORT = process.env.PORT ?? 1234
 
-app.listen(PORT,()=>{
+server.listen(PORT,()=>{
     console.log( `Server listenign on port: http://localhost:${PORT}` )
 })
