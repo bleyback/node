@@ -4,7 +4,7 @@ import { corsMiddleware } from './middlewares/cors.js'
 import http from "node:http";
 import { Server as SocketServer } from "socket.io";
 import { resolve } from "path";
-
+import cors from 'cors'
 
 const app=express()
 const server = http.createServer(app);
