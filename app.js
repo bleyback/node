@@ -2,7 +2,8 @@ import express, { json } from 'express'
 import { moviesRouter } from './routes/movies.js'
 import { corsMiddleware } from './middlewares/cors.js'
 import http from "node:http";
-import cors from 'cors'
+import { Server as SocketServer } from "socket.io";
+import { resolve } from "path";
 
 
 const app=express()
@@ -14,6 +15,8 @@ const io = new SocketServer(server,{
 });
 
 app.disable('x-powered-by')
+app.use(express.urlencoded({ extended: false }));
+app.use(express.static(resolve("frontend/dist")));
 
 
 app.use(json())
