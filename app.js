@@ -2,8 +2,7 @@ import express, { json } from 'express'
 import { moviesRouter } from './routes/movies.js'
 import { corsMiddleware } from './middlewares/cors.js'
 import http from "node:http";
-import { Server as SocketServer } from "socket.io";
-
+import cors from 'cors'
 
 
 const app=express()
